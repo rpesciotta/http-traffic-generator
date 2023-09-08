@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: http-traffic-generator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: http-traffic-generator
+  template:
+    metadata:
+      labels:
+        app: http-traffic-generator
+    spec:
+      containers:
+      - name: http-traffic-generator
+        env:
+        - name: SERVER
+          value: java-service-svc.prod
+        image: rpesciotta/http-traffic-generator:v1
+        imagePullPolicy: IfNotPresent
+      terminationGracePeriodSeconds: 3
