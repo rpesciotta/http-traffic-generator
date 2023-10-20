@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: traffic-generation
+  name: traffic-generator
 ---
 apiVersion: apps/v1
 kind: Deployment
